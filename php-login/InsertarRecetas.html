@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style7.css">
+    <title>Recetas</title>
+</head>
+<body>
+    <div class="container-registro">
+        <h2 class="titulo">
+            AGREGAR RECETAS
+        </h2>
+        
+        <form action="">
+            <div class="container-datos">    
+                <div class="container-izquierdo">
+                    <!--pseudonimo-->
+                    <input id="pseudonimo"type="text" placeholder="Escriba un Nombre" />
+                    <br>
+                    <label for="dificultad">
+                        Nivel de dificultad
+                    </label>
+                    <select name="select">
+                        <option value="facil" selected>fácil</option>
+                        <option value="medio" >medio</option>
+                        <option value="dificil">dificil</option>
+                    </select>
+                    <br>
+                    <label for="tiempo">
+                        Tiempo de preparación
+                    </label>
+                    <select id="tiempo" name="select">
+                        <option value="5" selected>5 min</option>
+                        <option value="15" >15 min</option>
+                        <option value="30" >30 min</option>
+                        <option value="45" >45 min</option>
+                        <option value="60" >60 min</option>
+                        <option value="75" >75 min</option>
+                        <option value="90" >90 min</option>
+                        <option value="105" >105 min</option>
+                    </select>
+                    <h3 class="titulo">Ingredientes</h3>
+                    <div class="container-ingredientes">
+                        <input name="ingredient1" type="text" placeholder="Escriba un ingrediente"/>
+                        <input name="ingredient2" type="text" placeholder="Escriba un ingrediente"/>
+                        <input name="ingredient3" type="text" placeholder="Escriba un ingrediente"/>
+                        <input name="ingredient4" type="text" placeholder="Escriba un ingrediente"/>
+                        <input name="ingredient5" type="text" placeholder="Escriba un ingrediente"/>
+                        <input name="ingredient6" type="text" placeholder="Escriba un ingrediente"/>
+                        <input name="ingredient7" type="text" placeholder="Escriba un ingrediente"/>
+                        <input name="ingredient8" type="text" placeholder="Escriba un ingrediente"/>
+                    </div>
+                    <h3 class="titulo">Pasos</h3>
+                    <textarea name="textarea" rows="10" cols="50" placeholder="Escribe aquí"></textarea>
+                    <input class="btn default-button" type="submit" value="Enviar">
+                </div>
+                <div class="container-imagen">
+                    <!--subir imagen-->
+                    
+                        <div class="input-file-upload">
+                            <div class="upload-btn">
+                                <button class="btn">
+                                    Seleccione la imagen de su receta
+                                </button>
+                                <input type="file" id="upfile" onchange="readURL(this); ">
+                            </div>
+                            <img class="upload_img" id="file_upload">
+                        </div>
+                </div>
+                
+            </div>
+            
+        </form>
+    </div>
+    <script src="app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+</html>

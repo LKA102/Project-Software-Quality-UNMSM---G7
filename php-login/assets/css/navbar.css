@@ -1,0 +1,25 @@
+.topheader {
+    position: fixed;
+    box-shadow: 0 4px 5px #5d5d5d;
+    background-color: #e4e4e4;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  
+  .topnav {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    max-width: 1116px;
+    margin: 0 auto;
+  }
+  
+  /*Imagen*/
+  
+  .chef img {
+    border-radius: 30%;
+    height: 40px;
+    width: 40px;
+    position: relative;
+  }

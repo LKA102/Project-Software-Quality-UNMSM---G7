@@ -1,0 +1,59 @@
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../img/fondo.jpg) no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+
+.mainbox {
+  height: 600px;
+  width: 600px;
+  position: relative;
+}
+
+.err {
+  color: #ffffff;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 5rem;
+  position: absolute;
+  /* left: 5%; */
+  top: 8%;
+}
+
+.far {
+  position: absolute;
+  font-size: 4.1rem;
+  left: 10%;
+  top: 11%;
+  color: #ffffff;
+}
+
+.err2 {
+  color: #ffffff;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 5rem;
+  position: absolute;
+  left: 21%;
+  top: 8%;
+}
+
+.msg {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.6rem;
+  position: absolute;
+  left: 14%;
+  top: 30%;
+  width: 75%;
+}
+
+a {
+  text-decoration: none;
+  color: #fff500;
+}
+
+a:hover {
+  text-decoration: underline;
+}

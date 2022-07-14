@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="../assets/css/navbar.css">
+<header class="topheader">
+    <nav class="topnav">
+        <a href="#" class="chef">
+            <img src="../assets/img/cocineroGorro.png" alt="gorro de Chef" height="50" width="50" />
+        </a>
+        <ul class="menu">
+            <li><a href="#Ayuda">Ayuda</a></li>
+            <!-- <?php if (!empty($user)):?> -->
+            <li><a href="./InsertarRecetas.php">Añadir receta</a></li>
+            <li><a href="./logout.php">Cerrar Sesión</a></li>
+            <?php else: ?>
+            <li><a href="./login.php">login</a></li>
+            <li><a href="./registro.php">registrate</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+</header>

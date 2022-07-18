@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-07-2022 a las 20:26:56
+-- Tiempo de generación: 17-07-2022 a las 19:42:03
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -24,35 +24,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `recetas`
+-- Estructura de tabla para la tabla `users`
 --
 
-CREATE TABLE `recetas` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(200) NOT NULL,
-  `creador` varchar(200) NOT NULL,
-  `dificultad` varchar(200) NOT NULL,
-  `tiempo` int(11) NOT NULL,
-  `ingre1` varchar(200) NOT NULL,
-  `ingre2` varchar(200) NOT NULL,
-  `ingre3` varchar(200) NOT NULL,
-  `ingre4` varchar(200) NOT NULL,
-  `ingre5` varchar(200) NOT NULL,
-  `ingre6` varchar(200) NOT NULL,
-  `ingre7` varchar(200) NOT NULL,
-  `ingre8` varchar(200) NOT NULL,
-  `imagen` blob NOT NULL,
-  `textpasos` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `email` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(200) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `recetas`
+-- Indices de la tabla `users`
 --
-ALTER TABLE `recetas`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -60,10 +48,10 @@ ALTER TABLE `recetas`
 --
 
 --
--- AUTO_INCREMENT de la tabla `recetas`
+-- AUTO_INCREMENT de la tabla `users`
 --
-ALTER TABLE `recetas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

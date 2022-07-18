@@ -29,7 +29,11 @@
                           
                             <br>
                             
-                                <b>Tiempo de preparación</b> '.$row["tiempo"].'
+                                <b>Tiempo de preparación</b> '.$row["tiempo"].' min
+                            
+                            <br>
+                            
+                                <b>Tipo de platillo</b> '.$row["tipo_r"].'
                             
                             <h3 class="titulo">Ingredientes</h3>
                             <div class="container-ingredientes">

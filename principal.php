@@ -16,14 +16,6 @@ if (isset($_SESSION['user_id'])) {
     }   
 } 
 
-    $where="";
-    $nombre = $_POST['xnombre'];    
-    if(isset($_POST['buscar']))
-    {
-            $where="where nombre like '".$nombre."%'";
-      
-    }
-    $listRec=$conn->query("SELECT * FROM recetas $where ORDER BY id ");
 
 ?>
 <!DOCTYPE html>
@@ -66,187 +58,84 @@ if (isset($_SESSION['user_id'])) {
                 </div>
                 
                 <div class="seleccionar-ingredientes">
-                    <div class="dropdown" data-control="checkbox-dropdown">
-                        <label class="dropdown-label">Verduras</label>
+                <input name="xnombre" class="opcion__filtro" type="text" placeholder="Buscar por nombre">
+                <select name="tipo_r" id="" class="opcion_dos">
+                    <option value="">Tipo</option>
+                    <option value="Entrada">Entrada</option>
+                    <option value="Segundo">Segundo</option>
+                    <option value="Postre">Postre</option>
+                </select>
+                <select name="dificultad" id="" class="opcion_dos">
+                    <option value="">Dificultad</option>
+                    <option value="Fácil">Fácil</option>
+                    <option value="Medio">Medio</option>
+                    <option value="Difícil">Difícil</option>
+                </select>
+                <select name="tiempo" id="" class="opcion_dos">
+                    <option value="">Tiempo</option>
+                    <option value="5">5min</option>
+                    <option value="15">15min</option>
+                    <option value="30">30min</option>
+                    <option value="45">45min</option>
+                    <option value="60">60min</option>
+                    <option value="75">75min</option>
+                    <option value="90">90min</option>
+                    <option value="105">105min</option>
+                </select>
 
-                        <div class="dropdown-list">
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Lechuga
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Apio
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Brocoli
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Cebolla
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Tomate
-                            </label>
-                        </div>
-                    </div>
-                    <div class="dropdown" data-control="checkbox-dropdown">
-                        <label class="dropdown-label">Carnes</label>
-
-                        <div class="dropdown-list">
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Pollo
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Pescado
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Carne de res
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Chuleta
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Hígado
-                            </label>
-                        </div>
-                    </div>
-                    <div class="dropdown" data-control="checkbox-dropdown">
-                        <label class="dropdown-label">Cereales</label>
-
-                        <div class="dropdown-list">
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Trigo
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Avena
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Arroz
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Quinua
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Maiz
-                            </label>
-                        </div>
-                    </div>
-                    <div class="dropdown" data-control="checkbox-dropdown">
-                        <label class="dropdown-label">Especias</label>
-
-                        <div class="dropdown-list">
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Orégano
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Pimienta
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Comino
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Ajonjoli
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Romero
-                            </label>
-                        </div>
-                    </div>
-                    <div class="dropdown" data-control="checkbox-dropdown">
-                        <label class="dropdown-label">Lácteos</label>
-
-                        <div class="dropdown-list">
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 1" />
-                                Leche
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 2" />
-                                Queso
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 3" />
-                                Mantequilla
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 4" />
-                                Yogurt
-                            </label>
-
-                            <label class="dropdown-option">
-                                <input type="checkbox" name="dropdown-group" value="Selection 5" />
-                                Queso crema
-                            </label>
-                        </div>
-                    </div>
                     <button name="buscar" class="avanzado">Buscar</button>
                 </div>
 
 
             </section>
         </div>
-        <section class="contenedor">
-            <button type="button" class="avanzado">Búsqueda Avanzada</button>
-            <div class="avanzado__opciones">
-                <input name="xnombre" class="opcion__filtro" type="text" placeholder="Buscar por nombre">
-                <select name="ingredientes_no" id="" class="opcion_dos">
-                    <option value="none">Ingredientes no deseados</option>
-                    <option value="leche">Leche</option>
-                    <option value="Kion">Kion</option>
-                    <option value="beterraga">Beterraga</option>
-                </select>
-                <select name="ordenar" id="" class="opcion_dos">
-                    <option value="none">Ordenar por</option>
-                    <option value="precio">Precio</option>
-                    <option value="facilidad">Facilidad</option>
-                    <option value="economico">Económico</option>
-                    <option value="alfabeto">alfabeto</option>
-                </select>
 
-            </div>
-        </section>
+        <section class="contenedor">
+        <button type="button" class="avanzado">Búsqueda Avanzada</button>
+        <div class="avanzado__opciones">
+            <select name="ordenar" id="" class="opcion_dos">
+                <option value="none">Ordenar por</option>
+                <option value="dificultad">Dificultad</option>
+                <option value="tiempo_preparacion">Tiempo de preparación</option>
+            </select>
+            <select name="ordenar_asc&desc" id="" class="opcion_dos">
+                <option value="none">Forma</option>
+                <option value="ascendente">Ascendente</option>
+                <option value="descendente">Descendente</option>
+            </select>
+            
+        </div>
+    </section> 
+    <?php
+    
+    $filtro="";
+    
+    if(isset($_POST['buscar'])){
+        
+    if($_POST['xnombre'] == '' AND $_POST['tipo_r'] == '' AND $_POST['dificultad'] == '' AND $_POST['tiempo'] = '' ){$filtro='';}else{
+        if($_POST['xnombre'] == '' AND $_POST['tipo_r'] == '' AND $_POST['dificultad'] == '' AND $_POST['tiempo'] != '' ){$filtro="WHERE tiempo = '".$_POST['tiempo']."'";}
+        if($_POST['xnombre'] == '' AND $_POST['tipo_r'] == '' AND $_POST['dificultad'] != '' AND $_POST['tiempo'] == '' ){$filtro="WHERE dificultad = '".$_POST['dificultad']."'";}
+        if($_POST['xnombre'] == '' AND $_POST['tipo_r'] == '' AND $_POST['dificultad'] != '' AND $_POST['tiempo'] != '' ){$filtro="WHERE dificultad = '".$_POST['dificultad']."' AND tiempo = '".$_POST['tiempo']."'";}
+        if($_POST['xnombre'] == '' AND $_POST['tipo_r'] != '' AND $_POST['dificultad'] == '' AND $_POST['tiempo'] == '' ){$filtro="WHERE tipo_r = '".$_POST['tipo_r']."'";}
+        if($_POST['xnombre'] == '' AND $_POST['tipo_r'] != '' AND $_POST['dificultad'] == '' AND $_POST['tiempo'] != '' ){$filtro="WHERE tipo_r = '".$_POST['tipo_r']."' AND tiempo = '".$_POST['tiempo']."'";}
+        if($_POST['xnombre'] == '' AND $_POST['tipo_r'] != '' AND $_POST['dificultad'] != '' AND $_POST['tiempo'] == '' ){$filtro="WHERE tipo_r = '".$_POST['tipo_r']."' AND dificultad = '".$_POST['dificultad']."'";}
+        if($_POST['xnombre'] == '' AND $_POST['tipo_r'] != '' AND $_POST['dificultad'] != '' AND $_POST['tiempo'] != '' ){$filtro="WHERE tipo_r = '".$_POST['tipo_r']."' AND dificultad = '".$_POST['dificultad']."' AND tiempo = '".$_POST['tiempo']."'";}
+        if($_POST['xnombre'] != '' AND $_POST['tipo_r'] == '' AND $_POST['dificultad'] == '' AND $_POST['tiempo'] == '' ){$filtro="WHERE nombre like '".$_POST['xnombre']."%'";}
+        if($_POST['xnombre'] != '' AND $_POST['tipo_r'] == '' AND $_POST['dificultad'] == '' AND $_POST['tiempo'] != '' ){$filtro="WHERE nombre like '".$_POST['xnombre']."%' AND tiempo = '".$_POST['tiempo']."'";}
+        if($_POST['xnombre'] != '' AND $_POST['tipo_r'] == '' AND $_POST['dificultad'] != '' AND $_POST['tiempo'] == '' ){$filtro="WHERE nombre like '".$_POST['xnombre']."%' AND dificultad = '".$_POST['dificultad']."'";}
+        if($_POST['xnombre'] != '' AND $_POST['tipo_r'] == '' AND $_POST['dificultad'] != '' AND $_POST['tiempo'] != '' ){$filtro="WHERE nombre like '".$_POST['xnombre']."%' AND dificultad = '".$_POST['dificultad']."' AND tiempo = '".$_POST['tiempo']."'";}
+        if($_POST['xnombre'] != '' AND $_POST['tipo_r'] != '' AND $_POST['dificultad'] == '' AND $_POST['tiempo'] == '' ){$filtro="WHERE nombre like '".$_POST['xnombre']."%' AND tipo_r = '".$_POST['tipo_r']."'";}
+        if($_POST['xnombre'] != '' AND $_POST['tipo_r'] != '' AND $_POST['dificultad'] == '' AND $_POST['tiempo'] != '' ){$filtro="WHERE nombre like '".$_POST['xnombre']."%' AND tipo_r = '".$_POST['tipo_r']."' AND tiempo = '".$_POST['tiempo']."'";}
+        if($_POST['xnombre'] != '' AND $_POST['tipo_r'] != '' AND $_POST['dificultad'] != '' AND $_POST['tiempo'] == '' ){$filtro="WHERE nombre like '".$_POST['xnombre']."%' AND tipo_r = '".$_POST['tipo_r']."' AND dificultad = '".$_POST['dificultad']."'";}
+        if($_POST['xnombre'] != '' AND $_POST['tipo_r'] != '' AND $_POST['dificultad'] != '' AND $_POST['tiempo'] != '' ){$filtro="WHERE nombre like '".$_POST['xnombre']."%' AND tipo_r = '".$_POST['tipo_r']."' AND dificultad = '".$_POST['dificultad']."' AND tiempo = '".$_POST['tiempo']."'";}
+        
+    }
+    
+    }
+    $listRec=$conn->query("SELECT * FROM recetas $filtro ORDER BY id "); 
+
+    
+    ?>
     </form>
     <div class="main">
         <ul class="cards">
@@ -275,11 +164,7 @@ if (isset($_SESSION['user_id'])) {
             ?>
         </ul>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="./assets/js/script.js"></script>
-</body>
-<div id="dataModal" class="modal fade">
+    <div id="dataModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -294,5 +179,10 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
 </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
 
 </html>

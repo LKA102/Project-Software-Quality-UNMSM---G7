@@ -21,7 +21,7 @@
 ?>
 
 <?php
-    $datos = $conn -> query("SELECT * FROM ingredientes");
+    $datos = $conn -> query("SELECT * FROM ingredientes ORDER BY ingre");
     $dato = $datos->fetchAll(PDO::FETCH_OBJ);
     //print_r($dato);
 ?>
@@ -33,6 +33,7 @@ if(isset($_POST['insertar']))
     $creador=$_POST['creador'];
     $dificultad=$_POST['dificultad'];
     $tiempo=$_POST['tiempo'];
+    $tipo=$_POST['tipo_r'];
     $ingre1=$_POST['ingre1'];
     $ingre2=$_POST['ingre2'];
     $ingre3=$_POST['ingre3'];
@@ -45,11 +46,12 @@ if(isset($_POST['insertar']))
     $imagen=fopen($cargarimagen,'rb');
     $textpasos=$_POST['textpasos'];
 
-    $insertarR=$conn->prepare("INSERT INTO recetas(nombre,creador,dificultad,tiempo,ingre1,ingre2,ingre3,ingre4,ingre5,ingre6,ingre7,ingre8,imagen,textpasos) VALUES (:nombre, :creador, :dificultad, :tiempo, :ingre1, :ingre2, :ingre3, :ingre4, :ingre5, :ingre6, :ingre7, :ingre8, :imagen, :textpasos)");
+    $insertarR=$conn->prepare("INSERT INTO recetas(nombre,creador,dificultad,tiempo,tipo_r,ingre1,ingre2,ingre3,ingre4,ingre5,ingre6,ingre7,ingre8,imagen,textpasos) VALUES (:nombre, :creador, :dificultad, :tiempo, :tipo_r, :ingre1, :ingre2, :ingre3, :ingre4, :ingre5, :ingre6, :ingre7, :ingre8, :imagen, :textpasos)");
     $insertarR->bindParam(':nombre', $nombre, PDO::PARAM_STR);
     $insertarR->bindParam(':creador', $creador, PDO::PARAM_STR);
     $insertarR->bindParam(':dificultad', $dificultad, PDO::PARAM_STR);
     $insertarR->bindParam(':tiempo', $tiempo, PDO::PARAM_INT);
+    $insertarR->bindParam(':tipo_r', $tipo, PDO::PARAM_STR);
     $insertarR->bindParam(':ingre1', $ingre1, PDO::PARAM_STR);
     $insertarR->bindParam(':ingre2', $ingre2, PDO::PARAM_STR);
     $insertarR->bindParam(':ingre3', $ingre3, PDO::PARAM_STR);
@@ -154,6 +156,14 @@ if(isset($_POST['insertar']))
                 <option value="75">75 min</option>
                 <option value="90">90 min</option>
                 <option value="105">105 min</option>
+            </select>
+            <label for="tipo">
+                Tipo de platillo
+            </label>
+            <select id="tipo" name="tipo_r" required>
+                <option value="entrada" selected>Entrada</option>
+                <option value="segundo">Segundo</option>
+                <option value="postre">Postre</option>
             </select>
             <input type="button" name="next" class="next action-button" value="Siguiente" />
         </fieldset>
